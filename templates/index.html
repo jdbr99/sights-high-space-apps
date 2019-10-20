@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% block content %}
+  <!-- Page Content -->
+  <section>
+    <div class="container" style="background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(40,46,50,0.7091211484593838) 48%, rgba(215,216,217,0) 100%);">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="mt-5" style="color:gray">{{ img_title }}</h1>
+          <p style="color:gray">{{ img_explanation }} Source: <a href="https://apod.nasa.gov/apod/astropix.html">https://apod.nasa.gov/apod/astropix.html</a>
+            <br>HD image: <a href={{ img_hd_url }}>{{ img_hd_url }}</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+{% endblock %}

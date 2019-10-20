@@ -1,18 +1,40 @@
 {% extends "template.html" %}
 {% block content %}
+<body style="background-color: rgba(62,68,74);">
 
-<div class="countainer" style="float: left"><img src="/{{ id }}/sat-img.png" class="rounded" alt="Responsive image"></div>
+    <!-- Para hayar tus coordenadas sigue <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=es">estas instrucciones.</a> -->
+
+<img src="/{{ usr_lat }}/{{ usr_lon }}/{{ sat_id }}/sat-img.png" alt="Responsive image" style="background-color: gray">
 
 <div class="container" style="width: 40%; float: right; padding-top: 1%;">
     <table class="table table-striped table-dark table-hover">
-        <tr><th colspan="2">Most Tracked Satellites</th></tr>
-        <tr><th>Name</th><th>ID</th></tr>
+        <tr><th colspan="2">Satelites Más Rastreados</th></tr>
+        <tr><th>Nombre</th><th>ID</th></tr>
         {% for name, id in entries.items() %}
         <tr>
             <td>{{ name }}</td>
-            <td><a href="/satellite-tracker/{{ id }}">{{ id }}</a></td>
+            <td><a href="/satellite-tracker/?usr_lat=0&usr_lon=0&usr_sat_id={{ id }}">{{ id }}</a></td>
         </tr>
         {% endfor %}
     </table>
+    <label style="color: white">Para hayar tus coordenadas sigue <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=es">estas instrucciones.</a></label>
+    <form method="GET">
+        <div class="form-row">
+            <div class="col">
+                <input id="usr_lat" name="usr_lat" type="float" class="form-control" placeholder="Latitud">
+            </div>
+            <div class="col">
+                <input id="usr_lon" name="usr_lon" type="float" class="form-control" placeholder="Longitud">
+            </div>
+        </div>
+        <input id="usr_sat_id" name="usr_sat_id" type="float" class="form-control" placeholder="ID del Satélite">
+        <button type="submit" class="btn btn-secondary">Plot</button>
+    </form>
 </div>
+<div class="jumbotron">
+        <h1 class="display-4">El objeto se encuentra {{ sat_alt }}km sobre el nivel del mar.</h1>
+        <h1 class="display-4">La velocidad actual del objeto es: {{ sat_vel }}m/s.</h1>
+        <h1 class="display-4">El objeto da {{ sat_rpd_avg }} vueltas por día a la tierra.</h1>
+</div>
+</body>
 {% endblock %}

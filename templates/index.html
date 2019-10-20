@@ -1,17 +1,19 @@
 {% extends "template.html" %}
 {% block content %}
-  <!-- Page Content -->
-  <section>
-    <div class="container" style="background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(40,46,50,0.7091211484593838) 48%, rgba(215,216,217,0) 100%);">
-      <div class="row">
-        <div class="col-lg-6">
-          <h1 class="mt-5" style="color:gray">{{ img_title }}</h1>
-          <p style="color:gray">{{ img_explanation }} Source: <a href="https://apod.nasa.gov/apod/astropix.html">https://apod.nasa.gov/apod/astropix.html</a>
-            <br>HD image: <a href={{ img_hd_url }}>{{ img_hd_url }}</a></p>
-        </div>
-      </div>
+<body style="background-image: url(/back.jpg);">
+<!-- <div class="jumbotron"> -->
+    <div class="page-header" style=" background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(20,35,79,0.737114914325105) 100%); ">
+            <img src="logo.png" style="max-width: 5%; height: auto;">
+            <h1 class="text-left">Giraffe <small>01101110 01110101 01101100 01101100</small></h1>
+            <p class="lead" style="color: black;">Web-app para procesar y mostrar datos oficiales de forma digerible e imaginable para todo público.</p>
+            <hr class="my-4">
+            <p style="color: black; font-size: 18px;">
+                Mediante esta Web-app nos adentraremos a explorar nuestro planeta mediante la información proporcionada de los satélites 
+                por ejemplo velocidad, altitud, entre otros datos, con la finalidad de presentarlos al usuario de una forma más sencilla 
+                con nuestra interfáz intuitiva y dinámica.
+            </p>
     </div>
-  </section>
-  
+<!-- </div> -->
+</body>
 {% endblock %}
